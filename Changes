@@ -1,0 +1,56 @@
+Changes file for Date-Pregnancy
+
+$Id$
+
+0.02
+
+- Added more tests to validate count back method, hence addition of
+  year should be conditional
+
+- Fixed bug in countback method, a year should be added when the first day
+  of the last period happens before april
+
+- Added tests to locate error reported by LTHEGLER
+
+- Fixed Makefile.PL
+
+- Renamed subdir in lib
+
+- Renaming module to Date::Pregnancy
+
+0.01 Released Sun Oct. 10 2004
+
+PRERELEASE
+
+- Added date parameter to calculcate week
+
+- Added several tests
+
+- Added use of clone (now things work as expected)
+
+- Added POD
+
+- Added Villads test
+
+- Added some simple error handling
+
+- Added calculate_month
+
+- Added BUGS file
+
+- Added MANIFEST file
+
+- Menstruation changed to period
+
+- Changed serious spelling error lenght to length
+
+- Separated calculation method into 3 separate parts, implementing:
+
+	- The 40 weeks method
+	- The count_back method
+	- The 266 days method
+
+- Added t/methods.t
+
+- Added use of POSIX, we use floor in the 266days method
+
