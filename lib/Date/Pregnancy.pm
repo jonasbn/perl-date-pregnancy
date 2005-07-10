@@ -10,7 +10,7 @@ use vars qw($VERSION @ISA @EXPORT_OK);
 require Exporter;
 use POSIX qw(floor);
 
-$VERSION = '0.01';
+$VERSION = '0.02';
 @ISA = qw(Exporter);
 
 @EXPORT_OK = qw(
@@ -18,10 +18,8 @@ $VERSION = '0.01';
 	_countback _266days _40weeks
 );
 
-use constant {
-	AVG_CYCLE => 28,
-	DAY       => (60 * 60 * 24),
-};
+use constant AVG_CYCLE => 28;
+use constant DAY       => (60 * 60 * 24);
 
 sub _40weeks {
 	my $dt = shift 

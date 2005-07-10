@@ -2,7 +2,20 @@ Changes file for Date-Pregnancy
 
 $Id$
 
-0.02
+0.02 Date::Pregnancy Released Sun Jul 10 2005
+
+- Changed use of constant module, the syntax use was of a newer version and
+  as such not necessary, this fixes a bug, which appears with the constants 
+  module distributed with Perl 5.6. (and prior).
+
+  This addresses test report: 166196  FAIL  5.6.1 on MSWin32 4.0
+  
+0.01 Date::Pregnancy Released Wed Oct. 13 2004
+
+- Due to package name change from:
+  	DateTime::Pregnancy to Date::Pregnancy 
+  
+  Also the version number has been reset from 0.02 to 0.01
 
 - Added more tests to validate count back method, hence addition of
   year should be conditional
@@ -18,7 +31,7 @@ $Id$
 
 - Renaming module to Date::Pregnancy
 
-0.01 Released Sun Oct. 10 2004
+0.01 DateTime::Pregnancy Released Released Sun Oct. 10 2004
 
 PRERELEASE
 
