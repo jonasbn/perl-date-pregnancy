@@ -2,6 +2,29 @@ Changes file for Date-Pregnancy
 
 $Id$
 
+0.03 Date::Pregnancy Released Fri Aug 18 2006
+
+- Fixed some problem with calculations of both week numbers and month numbers
+  I was making it uncessary complex (and buggy)
+
+- Added MANIFEST.SKIP (default from Module::Build, neat)
+
+- Fixed a bug in _countback method (also fixed a bug in a test relating to this
+  here bug)
+
+- Cleaned Build.PL for files no longer in use
+
+- Removed obsolete tests (these can be handled by Module::Build):
+	t/pod.t
+	t/pod-coverage.t
+
+- Added new unit-test t/warnings.t added tests for getting full coverage
+
+- Updated INSTALL
+
+- Changed to Module::Build instead of ExtUtils::MakeMaker
+
+
 0.02 Date::Pregnancy Released Sun Jul 10 2005
 
 - Changed use of constant module, the syntax use was of a newer version and
@@ -9,6 +32,7 @@ $Id$
   module distributed with Perl 5.6. (and prior).
 
   This addresses test report: 166196  FAIL  5.6.1 on MSWin32 4.0
+
   
 0.01 Date::Pregnancy Released Wed Oct. 13 2004
 
@@ -30,6 +54,7 @@ $Id$
 - Renamed subdir in lib
 
 - Renaming module to Date::Pregnancy
+
 
 0.01 DateTime::Pregnancy Released Released Sun Oct. 10 2004
 

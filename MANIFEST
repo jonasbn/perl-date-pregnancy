@@ -1,17 +1,17 @@
 BUGS
+Build.PL
 Changes
 INSTALL
 lib/Date/Pregnancy.pm
 Makefile.PL
 MANIFEST			This list of files
-META.yml			Module meta-data (added by MakeMaker)
+META.yml
 README
 t/00.load.t
 t/calculate_birthday.t
 t/calculate_month.t
 t/calculate_week.t
 t/methods.t
-t/pod-coverage.t
-t/pod.t
 t/Villads.t
+t/warnings.t
 TODO

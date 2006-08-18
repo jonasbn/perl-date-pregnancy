@@ -6,12 +6,12 @@ $Id$
 
 2. cd Date-Pregnancy
 
-3. perl Makefile.PL
+3. perl Build.PL
 
-4. make
+4. ./Build
 
-5. make test
+5. ./Build test
 
-6. make install (requires privileged access)
+6. ./Build install (might require privileged access)
 
-7. make clean  
+7. ./Build realclean 

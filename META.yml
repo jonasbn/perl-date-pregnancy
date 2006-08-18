@@ -1,20 +1,30 @@
-# http://module-build.sourceforge.net/META-spec.html
-#XXXXXXX This is a prototype!!!  It will change in the future!!! XXXXX#
-name:         Date-Pregnancy
-version:      0.02
-version_from: lib/Date/Pregnancy.pm
-installdirs:  site
+---
+name: Date-Pregnancy
+version: !!perl/hash:Module::Build::Version
+  original: 0.03
+  version:
+    - 0
+    - 30
+author:
+  - 'Jonas B. Nielsen, (jonasbn) - C<< <jonasbn@cpan.org> >>'
+abstract: calculate birthdate and week numbers for a pregnancy
+license: perl
+resources:
+  license: http://dev.perl.org/licenses/
 requires:
-    Carp:                          0
-    Clone:                         0
-    DateTime:                      0
-    Exporter:                      0
-    File::Find:                    0
-    File::Spec:                    0
-    POSIX:                         0
-    Test::More:                    0
-    Test::Pod:                     0.95
-    Test::Pod::Coverage:           0.08
-
-distribution_type: module
-generated_by: ExtUtils::MakeMaker version 6.25
+  Carp: 0
+  Clone: 0
+  DateTime: 0
+  Exporter: 0
+  File::Find: 0
+  File::Spec: 0
+  POSIX: 0
+  Test::More: 0
+provides:
+  Date::Pregnancy:
+    file: lib/Date/Pregnancy.pm
+    version: 0.03
+generated_by: Module::Build version 0.2804
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.2.html
+  version: 1.2

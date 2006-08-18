@@ -6,11 +6,12 @@ use strict;
 use DateTime;
 use Carp;
 use Clone qw(clone);
+use POSIX qw(ceil);
 use vars qw($VERSION @ISA @EXPORT_OK);
 require Exporter;
 use POSIX qw(floor);
 
-$VERSION = '0.02';
+$VERSION = '0.03';
 @ISA = qw(Exporter);
 
 @EXPORT_OK = qw(
@@ -66,9 +67,11 @@ sub _countback {
 
 	$birthday->add(days => 7);
 	$birthday->subtract(months => 3);
-	if ($dt->month < 4) {
-		$birthday->add(years => 1);
-	}
+	$birthday->add(years => 1);
+	
+	#if ($dt->month < 3) {
+	#} 
+
 	return $birthday;
 }
 
@@ -113,6 +116,9 @@ sub calculate_week {
 
 	my $now = 
 		$params{'date'} || DateTime->now;
+	$now->set_time_zone('UTC');
+
+	my $method = $params{'method'} || '40weeks';
 
 	my $birthday;
 	if ($params{'birthday'}) {
@@ -126,19 +132,17 @@ sub calculate_week {
 				period_cycle_length =>
 					$period_cycle_length,
 				method =>
-					$params{'method'},
+					$method,
 			);
 		return undef unless (ref $birthday);
 	}
-
-	my $birthdayweek   = $birthday->week_number;
-	my $weekdiff = $birthdayweek - 40;
+	$birthday->set_time_zone('UTC');
 	
-	if ($weekdiff < 0) {
-		return ($now->week_number-(52-$now->week_number+$birthdayweek));
-	} else {
-		return ($now->week_number - $weekdiff);
-	}
+	$birthday->subtract(months => 9);
+		
+	my $duration = $birthday->delta_days($now);
+			
+	return ($duration->weeks + 1);
 }
 
 sub calculate_month {
@@ -149,6 +153,9 @@ sub calculate_month {
 
 	my $now = 
 		$params{'date'} || DateTime->now;
+	$now->set_time_zone('UTC');
+	
+	my $method = $params{'method'} || '40weeks';
 
 	my $birthday;
 	if ($params{'birthday'}) {
@@ -162,19 +169,17 @@ sub calculate_month {
 				period_cycle_length =>
 					$period_cycle_length,
 				method =>
-					$params{'method'},
+					$method,
 			);
 		return undef unless (ref $birthday);
 	}
+	$birthday->set_time_zone('UTC');
 
-	my $birthdaymonth = $birthday->month;
-	my $monthdiff = $birthdaymonth - 9;
+	$birthday->subtract(months => 9);
 	
-	if ($monthdiff < 0) {
-		return ($now->month-(12-$now->month+$birthdaymonth));
-	} else {
-		return ($now->month - $monthdiff);
-	}
+	my $duration = $birthday->delta_md($now);
+	
+	return ($duration->months + 1);
 }
 
 1;

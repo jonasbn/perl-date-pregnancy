@@ -1,7 +1,7 @@
 # $Id$
 
 use strict;
-use Test::More tests => 11;
+use Test::More tests => 17;
 use DateTime;
 
 #test 1
@@ -53,6 +53,39 @@ $birthday = calculate_birthday(
 	method => 'countback'
 );
 
+#test 9-11
 is($birthday->day, 30);
 is($birthday->month, 9);
-is($birthday->year, 2004);
+is($birthday->year, 2005);
+
+$dt = DateTime->new(
+	year  => 2006,
+	month => 7,
+	day   => 1,
+);
+
+$birthday = calculate_birthday(
+	first_day_of_last_period => $dt,
+	method => 'countback'
+);
+
+#test 12-14
+is($birthday->day, 8);
+is($birthday->month, 4);
+is($birthday->year, 2007);
+
+$dt = DateTime->new(
+	year  => 2007,
+	month => 1,
+	day   => 1,
+);
+
+$birthday = calculate_birthday(
+	first_day_of_last_period => $dt,
+	method => 'countback'
+);
+
+#test 15-17
+is($birthday->day, 8);
+is($birthday->month, 10);
+is($birthday->year, 2007);
