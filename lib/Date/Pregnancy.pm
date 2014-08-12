@@ -10,6 +10,7 @@ use POSIX qw(ceil);
 use vars qw($VERSION @ISA @EXPORT_OK);
 require Exporter;
 use POSIX qw(floor);
+use 5.008; #5.8.0
 
 $VERSION = '0.03';
 @ISA = qw(Exporter);

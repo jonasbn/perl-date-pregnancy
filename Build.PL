@@ -15,5 +15,6 @@ Module::Build->new(
 		'Carp'                => 0,
 		'Exporter'            => 0,
 		'POSIX'               => 0,
+		'perl'                   => '5.008', #5.8.0
 	},
 )->create_build_script;

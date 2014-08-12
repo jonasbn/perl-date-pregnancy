@@ -1,6 +1,9 @@
 Changes file for Date-Pregnancy
 
-$Id$
+HEAD
+
+- Added specification of required Perl version (5.8.0)
+
 
 0.03 Date::Pregnancy Released Fri Aug 18 2006
 
