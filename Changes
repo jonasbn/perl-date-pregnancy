@@ -5,15 +5,15 @@ HEAD
 - Added specification of required Perl version (5.8.0)
 
 
-0.03 Date::Pregnancy Released Fri Aug 18 2006
+0.03 2006.08.18, Bug fix release, update required
 
-- Fixed some problem with calculations of both week numbers and month numbers
-  I was making it uncessary complex (and buggy)
+- Fixed some problem with calculations of both week numbers and month
+  numbers I was making it uncessary complex (and buggy)
 
 - Added MANIFEST.SKIP (default from Module::Build, neat)
 
-- Fixed a bug in _countback method (also fixed a bug in a test relating to this
-  here bug)
+- Fixed a bug in _countback method (also fixed a bug in a test relating
+  to this here bug)
 
 - Cleaned Build.PL for files no longer in use
 
@@ -28,16 +28,16 @@ HEAD
 - Changed to Module::Build instead of ExtUtils::MakeMaker
 
 
-0.02 Date::Pregnancy Released Sun Jul 10 2005
+0.02 2005.07.10, Bug fix release, update required
 
-- Changed use of constant module, the syntax use was of a newer version and
-  as such not necessary, this fixes a bug, which appears with the constants
-  module distributed with Perl 5.6. (and prior).
+- Changed use of constant module, the syntax use was of a newer version
+  and as such not necessary, this fixes a bug, which appears with the
+  constants module distributed with Perl 5.6. (and prior).
 
   This addresses test report: 166196  FAIL  5.6.1 on MSWin32 4.0
 
 
-0.01 Date::Pregnancy Released Wed Oct. 13 2004
+0.01 2004.10.13, Bug fix release, update required
 
 - Due to package name change from:
   	DateTime::Pregnancy to Date::Pregnancy
@@ -47,8 +47,8 @@ HEAD
 - Added more tests to validate count back method, hence addition of
   year should be conditional
 
-- Fixed bug in countback method, a year should be added when the first day
-  of the last period happens before april
+- Fixed bug in countback method, a year should be added when the first
+  day of the last period happens before april
 
 - Added tests to locate error reported by LTHEGLER
 
@@ -59,9 +59,9 @@ HEAD
 - Renaming module to Date::Pregnancy
 
 
-0.01 DateTime::Pregnancy Released Released Sun Oct. 10 2004
+0.01 2004.10.10, initial release
 
-PRERELEASE
+- Released under name: DateTime::Pregnancy
 
 - Added date parameter to calculcate week
 
