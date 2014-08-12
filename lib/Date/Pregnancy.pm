@@ -179,7 +179,7 @@ Date::Pregnancy - calculate birthdate and week numbers for a pregnancy
 =head1 SYNOPSIS
 
 	use Date::Pregnancy qw(calculate_birthday);
-	
+
 	my $dt = DateTime->new(
 		year  => 2004,
 		month => 3,
@@ -344,8 +344,8 @@ or undef upon failure.
 
 =head1 METHODS
 
-This module implements 3 different methods for calculating the date of 
-birth based on data such as first day of last period (LMP) and average period 
+This module implements 3 different methods for calculating the date of
+birth based on data such as first day of last period (LMP) and average period
 cycle length (APCL).
 
 The 3 methods are:
@@ -394,7 +394,7 @@ the result of your own/your doctor's week number calculation, then I
 can use these data to validate the calculation methods used in this
 module.
 
-If possible please include the information on what method your doctor 
+If possible please include the information on what method your doctor
 is using if this is available (SEE: METHODS).
 
 =head1 BUGS
@@ -411,7 +411,7 @@ See the BUGS file for known bugs.
 
 =head1 SEE ALSO
 
-=over 
+=over
 
 =item L<DateTime>
 
@@ -430,7 +430,7 @@ See the BUGS file for known bugs.
 =head1 DISCLAIMER
 
 The method of calculating day of birth and week numbers implemented in
-this module is based on simple formulars. 
+this module is based on simple formulars.
 
 The ultra sound scan is a much more accurate method and finally babies
 seem to have a will of their own, so please do only use the results of
@@ -449,7 +449,7 @@ and acuses me of pregnant-talk (just because he cannot calculate the
 weeks), now he can find out by looking at the tests included in this
 module or by using this module.
 
-=item * Lars Balker Rasmussen, who could not find Date-Pregnancy in his include 
+=item * Lars Balker Rasmussen, who could not find Date-Pregnancy in his include
 path "lbr can't locate Date/Pregnancy.pm in @INC" - Now he has no
 excuse L<Date::Pregnancy> is a reality.
 
