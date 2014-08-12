@@ -10,177 +10,164 @@ use POSIX qw(ceil);
 use vars qw($VERSION @ISA @EXPORT_OK);
 require Exporter;
 use POSIX qw(floor);
-use 5.008; #5.8.0
+use 5.008;    #5.8.0
 
 $VERSION = '0.03';
-@ISA = qw(Exporter);
+@ISA     = qw(Exporter);
 
 @EXPORT_OK = qw(
-	calculate_birthday calculate_week calculate_month 
-	_countback _266days _40weeks
+    calculate_birthday calculate_week calculate_month
+    _countback _266days _40weeks
 );
 
 use constant AVG_CYCLE => 28;
-use constant DAY       => (60 * 60 * 24);
+use constant DAY       => ( 60 * 60 * 24 );
 
 sub _40weeks {
-	my $dt = shift 
-		|| carp "first_day_of_last_period parameter is mandatory";
-	return undef unless (ref $dt);
+    my $dt = shift
+        || carp "first_day_of_last_period parameter is mandatory";
+    return undef unless ( ref $dt );
 
-	my $birthday = clone($dt);
-	$birthday->add(weeks => 40);
-	
-	return $birthday;
+    my $birthday = clone($dt);
+    $birthday->add( weeks => 40 );
+
+    return $birthday;
 }
 
 sub _266days {
-	my ($dt, $period_cycle_length) = @_;
+    my ( $dt, $period_cycle_length ) = @_;
 
-	unless (ref $dt) {
-		carp "first_day_of_last_period parameter is mandatory";
-		return undef;
-	}
+    unless ( ref $dt ) {
+        carp "first_day_of_last_period parameter is mandatory";
+        return undef;
+    }
 
-	if (! $period_cycle_length) {
-		carp "period_cycle_length parameter is mandatory";
-		return undef;
-	}
+    if ( !$period_cycle_length ) {
+        carp "period_cycle_length parameter is mandatory";
+        return undef;
+    }
 
-	my $birthday =  clone($dt);
-	if ($period_cycle_length > 28) {
-		$birthday->add(seconds => (DAY * floor($period_cycle_length * 0.85 * (2 / 3))));
+    my $birthday = clone($dt);
+    if ( $period_cycle_length > 28 ) {
+        $birthday->add( seconds =>
+                ( DAY * floor( $period_cycle_length * 0.85 * ( 2 / 3 ) ) ) );
 
-	} elsif ($period_cycle_length < 29) {
-		$birthday->add(seconds => (DAY * ($period_cycle_length/2)));
-	}
-	$birthday->add(days => 266);
+    } elsif ( $period_cycle_length < 29 ) {
+        $birthday->add( seconds => ( DAY * ( $period_cycle_length / 2 ) ) );
+    }
+    $birthday->add( days => 266 );
 
-	return $birthday;
+    return $birthday;
 }
 
 sub _countback {
-	my $dt = shift 
-		|| carp "first_day_of_last_period parameter is mandatory";
-	return undef unless (ref $dt);
+    my $dt = shift
+        || carp "first_day_of_last_period parameter is mandatory";
+    return undef unless ( ref $dt );
 
-	my $birthday = clone($dt);
+    my $birthday = clone($dt);
 
-	$birthday->add(days => 7);
-	$birthday->subtract(months => 3);
-	$birthday->add(years => 1);
-	
-	#if ($dt->month < 3) {
-	#} 
+    $birthday->add( days => 7 );
+    $birthday->subtract( months => 3 );
+    $birthday->add( years => 1 );
 
-	return $birthday;
+    #if ($dt->month < 3) {
+    #}
+
+    return $birthday;
 }
 
 sub calculate_birthday {
-	my %params = @_;
+    my %params = @_;
 
-	my $method =
-		$params{'method'} || '266days';
+    my $method = $params{'method'} || '266days';
 
-	my $period_cycle_length = 
-		$params{'period_cycle_length'} || AVG_CYCLE;
+    my $period_cycle_length = $params{'period_cycle_length'} || AVG_CYCLE;
 
-	my $first_day_of_last_period = $params{'first_day_of_last_period'} 
-		|| carp "first_day_of_last_period parameter is mandatory";
-	return undef unless (ref $first_day_of_last_period);
+    my $first_day_of_last_period = $params{'first_day_of_last_period'}
+        || carp "first_day_of_last_period parameter is mandatory";
+    return undef unless ( ref $first_day_of_last_period );
 
-	my $calculation  =  "_$method";
-	my @methods = qw(_countback _266days _40weeks);
+    my $calculation = "_$method";
+    my @methods     = qw(_countback _266days _40weeks);
 
-	unless (grep {/$method/} @methods) {
-		croak "Unknown method: $params{'method'}";
-	}
-	
-	$calculation    .= '($first_day_of_last_period';
-	
-	if ($method eq '266days') {
-		$calculation .= ', $period_cycle_length'
-	}
-	$calculation .= ');';
+    unless ( grep {/$method/} @methods ) {
+        croak "Unknown method: $params{'method'}";
+    }
 
-	my $birthday = eval("$calculation"); 
-	croak $@ if $@;
+    $calculation .= '($first_day_of_last_period';
 
-	return $birthday;
+    if ( $method eq '266days' ) {
+        $calculation .= ', $period_cycle_length';
+    }
+    $calculation .= ');';
+
+    my $birthday = eval("$calculation");
+    croak $@ if $@;
+
+    return $birthday;
 }
 
 sub calculate_week {
-	my %params = @_;
+    my %params = @_;
 
-	my $period_cycle_length = 
-		$params{'period_cycle_length'} || AVG_CYCLE;
+    my $period_cycle_length = $params{'period_cycle_length'} || AVG_CYCLE;
 
-	my $now = 
-		$params{'date'} || DateTime->now;
-	$now->set_time_zone('UTC');
+    my $now = $params{'date'} || DateTime->now;
+    $now->set_time_zone('UTC');
 
-	my $method = $params{'method'} || '40weeks';
+    my $method = $params{'method'} || '40weeks';
 
-	my $birthday;
-	if ($params{'birthday'}) {
-		$birthday = $params{'birthday'};
+    my $birthday;
+    if ( $params{'birthday'} ) {
+        $birthday = $params{'birthday'};
 
-	} else {
-		$birthday = 
-			calculate_birthday(
-				first_day_of_last_period =>
-					$params{'first_day_of_last_period'}, 
-				period_cycle_length =>
-					$period_cycle_length,
-				method =>
-					$method,
-			);
-		return undef unless (ref $birthday);
-	}
-	$birthday->set_time_zone('UTC');
-	
-	$birthday->subtract(months => 9);
-		
-	my $duration = $birthday->delta_days($now);
-			
-	return ($duration->weeks + 1);
+    } else {
+        $birthday = calculate_birthday(
+            first_day_of_last_period => $params{'first_day_of_last_period'},
+            period_cycle_length      => $period_cycle_length,
+            method                   => $method,
+        );
+        return undef unless ( ref $birthday );
+    }
+    $birthday->set_time_zone('UTC');
+
+    $birthday->subtract( months => 9 );
+
+    my $duration = $birthday->delta_days($now);
+
+    return ( $duration->weeks + 1 );
 }
 
 sub calculate_month {
-	my %params = @_;
+    my %params = @_;
 
-	my $period_cycle_length = 
-		$params{'period_cycle_length'} || AVG_CYCLE;
+    my $period_cycle_length = $params{'period_cycle_length'} || AVG_CYCLE;
 
-	my $now = 
-		$params{'date'} || DateTime->now;
-	$now->set_time_zone('UTC');
-	
-	my $method = $params{'method'} || '40weeks';
+    my $now = $params{'date'} || DateTime->now;
+    $now->set_time_zone('UTC');
 
-	my $birthday;
-	if ($params{'birthday'}) {
-		$birthday = $params{'birthday'};
+    my $method = $params{'method'} || '40weeks';
 
-	} else {
-		$birthday = 
-			calculate_birthday(
-				first_day_of_last_period =>
-					$params{'first_day_of_last_period'}, 
-				period_cycle_length =>
-					$period_cycle_length,
-				method =>
-					$method,
-			);
-		return undef unless (ref $birthday);
-	}
-	$birthday->set_time_zone('UTC');
+    my $birthday;
+    if ( $params{'birthday'} ) {
+        $birthday = $params{'birthday'};
 
-	$birthday->subtract(months => 9);
-	
-	my $duration = $birthday->delta_md($now);
-	
-	return ($duration->months + 1);
+    } else {
+        $birthday = calculate_birthday(
+            first_day_of_last_period => $params{'first_day_of_last_period'},
+            period_cycle_length      => $period_cycle_length,
+            method                   => $method,
+        );
+        return undef unless ( ref $birthday );
+    }
+    $birthday->set_time_zone('UTC');
+
+    $birthday->subtract( months => 9 );
+
+    my $duration = $birthday->delta_md($now);
+
+    return ( $duration->months + 1 );
 }
 
 1;
