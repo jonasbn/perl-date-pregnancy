@@ -1,7 +1,5 @@
 package Date::Pregnancy;
 
-# $Id$
-
 use strict;
 use DateTime;
 use Carp;
