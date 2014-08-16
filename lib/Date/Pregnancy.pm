@@ -1,6 +1,7 @@
 package Date::Pregnancy;
 
 use strict;
+use warnings;
 use DateTime;
 use Carp;
 use Clone qw(clone);
