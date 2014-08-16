@@ -1,6 +1,8 @@
 Changes file for Date-Pregnancy
 
-HEAD
+0.04 2014.08.16, maintenance release, update not required
+
+- Added use of warnings
 
 - Added specification of required Perl version (5.8.0)
 

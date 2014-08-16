@@ -11,7 +11,7 @@ require Exporter;
 use POSIX qw(floor);
 use 5.008;    #5.8.0
 
-$VERSION = '0.03';
+$VERSION = '0.04';
 @ISA     = qw(Exporter);
 
 @EXPORT_OK = qw(
