@@ -16,4 +16,14 @@ Module::Build->new(
         'POSIX'      => 0,
         'perl'       => '5.008',    #5.8.0
     },
+    meta_merge => {
+        resources => {
+            homepage =>
+                'https://github.com/jonasbn/Date-Pregnancy',
+            bugtracker =>
+                'http://rt.cpan.org/NoAuth/Bugs.html?Dist=Date-Pregnancy',
+            repository =>
+                'https://github.com/jonasbn/Date-Pregnancy',
+        }
+    },
 )->create_build_script;
