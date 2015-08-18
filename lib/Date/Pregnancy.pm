@@ -173,6 +173,16 @@ sub calculate_month {
 
 __END__
 
+=pod
+
+=begin markdown
+
+[![CPAN version](https://badge.fury.io/pl/Date-Pregnancy.svg)](http://badge.fury.io/pl/Date-Pregnancy)
+[![Build Status](https://travis-ci.org/jonasbn/Date-Pregnancy.svg?branch=master)](https://travis-ci.org/jonasbn/Date-Pregnancy)
+[![Coverage Status](https://coveralls.io/repos/jonasbn/Date-Pregnancy/badge.png)](https://coveralls.io/r/jonasbn/Date-Pregnancy)
+
+=end markdown
+
 =head1 NAME
 
 Date::Pregnancy - calculate birthdate and week numbers for a pregnancy
