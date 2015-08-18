@@ -6,6 +6,10 @@
 
 Date::Pregnancy - calculate birthdate and week numbers for a pregnancy
 
+# VERSION
+
+This documentation describes version 0.05
+
 # SYNOPSIS
 
         use Date::Pregnancy qw(calculate_birthday);
@@ -272,10 +276,6 @@ Jonas B. Nielsen, (jonasbn) - `<jonasbn@cpan.org>`
 
 # COPYRIGHT
 
-Date-Pregnancy is (C) by Jonas B. Nielsen, (jonasbn) 2004
+Date-Pregnancy is (C) by Jonas B. Nielsen, (jonasbn) 2004-2015
 
-Date-Pregnancy is released under the artistic license
-
-The distribution is licensed under the Artistic License, as specified
-by the Artistic file in the standard perl distribution
-(http://www.perl.com/language/misc/Artistic.html).
+Date-Pregnancy is released under the artistic license 2.0
