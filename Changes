@@ -2,6 +2,8 @@ Changes file for Date-Pregnancy
 
 0.05 2015-08-18 Maintenance release, update not required
 
+- License upgraded from artistic license 1.0 to artistic license 2.0
+
 - Migrated from Module::Build to Dist::Zilla
 
 

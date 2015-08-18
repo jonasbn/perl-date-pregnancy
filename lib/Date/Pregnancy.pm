@@ -11,7 +11,7 @@ require Exporter;
 use POSIX qw(floor);
 use 5.008;    #5.8.0
 
-$VERSION = '0.04';
+$VERSION = '0.05';
 @ISA     = qw(Exporter);
 
 @EXPORT_OK = qw(
@@ -186,6 +186,10 @@ __END__
 =head1 NAME
 
 Date::Pregnancy - calculate birthdate and week numbers for a pregnancy
+
+=head1 VERSION
+
+This documentation describes version 0.05
 
 =head1 SYNOPSIS
 
@@ -474,12 +478,8 @@ Jonas B. Nielsen, (jonasbn) - C<< <jonasbn@cpan.org> >>
 
 =head1 COPYRIGHT
 
-Date-Pregnancy is (C) by Jonas B. Nielsen, (jonasbn) 2004
+Date-Pregnancy is (C) by Jonas B. Nielsen, (jonasbn) 2004-2015
 
-Date-Pregnancy is released under the artistic license
-
-The distribution is licensed under the Artistic License, as specified
-by the Artistic file in the standard perl distribution
-(http://www.perl.com/language/misc/Artistic.html).
+Date-Pregnancy is released under the artistic license 2.0
 
 =cut
