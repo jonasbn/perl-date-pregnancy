@@ -1,13 +1,18 @@
 Changes file for Date-Pregnancy
 
-0.04 2014.08.16, maintenance release, update not required
+0.05 2015-08-18 Maintenance release, update not required
+
+- Migrated from Module::Build to Dist::Zilla
+
+
+0.04 2014-0816 Maintenance release, update not required
 
 - Added use of warnings
 
 - Added specification of required Perl version (5.8.0)
 
 
-0.03 2006.08.18, Bug fix release, update required
+0.03 2006-08-18 Bug fix release, update required
 
 - Fixed some problem with calculations of both week numbers and month
   numbers I was making it uncessary complex (and buggy)
@@ -30,7 +35,7 @@ Changes file for Date-Pregnancy
 - Changed to Module::Build instead of ExtUtils::MakeMaker
 
 
-0.02 2005.07.10, Bug fix release, update required
+0.02 2005-07-10 Bug fix release, update required
 
 - Changed use of constant module, the syntax use was of a newer version
   and as such not necessary, this fixes a bug, which appears with the
@@ -39,7 +44,7 @@ Changes file for Date-Pregnancy
   This addresses test report: 166196  FAIL  5.6.1 on MSWin32 4.0
 
 
-0.01 2004.10.13, Bug fix release, update required
+0.01 2004-10-13, Bug fix release, update required
 
 - Due to package name change from:
   	DateTime::Pregnancy to Date::Pregnancy
@@ -61,7 +66,7 @@ Changes file for Date-Pregnancy
 - Renaming module to Date::Pregnancy
 
 
-0.01 2004.10.10, initial release
+0.01 2004-10-10 Initial release
 
 - Released under name: DateTime::Pregnancy
 
@@ -96,4 +101,3 @@ Changes file for Date-Pregnancy
 - Added t/methods.t
 
 - Added use of POSIX, we use floor in the 266days method
-
