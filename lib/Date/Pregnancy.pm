@@ -11,7 +11,7 @@ require Exporter;
 use POSIX qw(floor);
 use 5.008;    #5.8.0
 
-$VERSION = '0.05';
+$VERSION = '0.06';
 @ISA     = qw(Exporter);
 
 @EXPORT_OK = qw(
@@ -270,7 +270,7 @@ Takes one named parameter:
 Which should be a DateTime object indicating the first day of the last
 period.
 
-If the period cycle length varies from the average og 28 days,
+If the period cycle length varies from the average of 28 days,
 you can optionally provide the named parameter:
 
 * period_cycle_length
@@ -285,13 +285,13 @@ can use the named parameter B<method> and specify either:
 
 * countback
 
-The function returns a DateTime object indicating the calculated day of birth
+The function returns a DateTime object indicating the calculated date of birth
 or undef upon failure.
 
 =head2 calculate_week
 
 Calculates in what week the pregnant person currently is. A pregnancy
-is in average 40 weeks these weeks numbers are normally used when
+is on average 40 weeks; these week numbers are normally used when
 talking pregnancy and most guides, books and websites refer to the
 different stages of pregnancy using these week numbers.
 
@@ -307,10 +307,10 @@ to calculate the week number for a given date. The date specified
 should be a DateTime object, this defaults to now, when not provided.
 
 Also a named parameter called B<birthday> can be provided, if you
-already have an birthday DateTime object. If this is not provided
+already have a birthday DateTime object. If this is not provided
 B<calculate_week> will call B<calculate_birthday> internally.
 
-As for B<calculate_birthday> the function also takes the named paramter:
+As for B<calculate_birthday> the function also takes the named parameter:
 
 * first_day_of_last_period
 
@@ -326,7 +326,7 @@ undef upon failure.
 =head2 calculate_month
 
 Calculates in what month the pregnant person currently is (see also
-B<calculate_week>). A pregnancy is in average 9 months.
+B<calculate_week>). A pregnancy is on average 9 months.
 
 Takes one named parameter:
 
@@ -340,11 +340,11 @@ to calculate the month number for a given date. The date specified
 should be a DateTime object, this defaults to now, when not provided.
 
 Also a named parameter called B<birthday> can be provided, as for
-B<calculate_week>, if you already have an birthday DateTime object. If
+B<calculate_week>, if you already have a birthday DateTime object. If
 this is not provided B<calculate_month> will call B<calculate_birthday>
 internally.
 
-As for B<calculate_birthday> the function also takes the named paramter:
+As for B<calculate_birthday> the function also takes the named parameter:
 
 * first_day_of_last_period
 
@@ -392,9 +392,8 @@ number of weeks in an average pregnancy from the LMP date.
 
 =head2 Count Back
 
-The count back method adds 7 days to the LWP and deducts 3 months, you
-then have to add 1 year in the case where and your have the estimated
-date of birth.
+The count back method adds 7 days to the LMP, then deducts 3 months, and
+finally adds 1 year to give the estimated date of birth.
 
 =head1 TEST DATA
 
@@ -403,10 +402,10 @@ opportunity of submitting me test data it is more than welcome.
 
 The format should be either a test file (*.t), where you choose the
 file name yourself (see t/Villads.t) or you simply submit me the date
-of the first day of the last period for the pregnant person, the lenght
-time between periods if this varies from the avarage of 28 and possible
-the result of your own/your doctor's week number calculation, then I
-can use these data to validate the calculation methods used in this
+of the first day of the last period for the pregnant person, the length of
+time between periods (if this varies from the avarage of 28), and possibly
+the result of your own/your doctor's week number calculation. I can
+then use these data to validate the calculation methods used in this
 module.
 
 If possible please include the information on what method your doctor
@@ -445,19 +444,21 @@ See the BUGS file for known bugs.
 =head1 DISCLAIMER
 
 The method of calculating day of birth and week numbers implemented in
-this module is based on simple formulars.
+this module is based on simple formulas.
 
-The ultra sound scan is a much more accurate method and finally babies
+The ultrasound scan is a much more accurate method and finally babies
 seem to have a will of their own, so please do only use the results of
 this module as a guideline, the author of this module cannot be held
 responsible for the results of calculations based on use of this module.
 
-Feedback is welcome though aswell as test data (please see TEST DATA
+Feedback is welcome though as well as test data (please see TEST DATA
 above).
 
 =head1 ACKNOWLEDGEMENTS
 
 =over
+
+=item * Nick Morrott, corrections to multiple spelling errors
 
 =item * Thomas Eibner, who ALWAYS asks me whether I am a father by now
 and acuses me of pregnant-talk (just because he cannot calculate the
