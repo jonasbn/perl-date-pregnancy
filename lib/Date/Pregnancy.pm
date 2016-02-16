@@ -479,7 +479,7 @@ Jonas B. Nielsen, (jonasbn) - C<< <jonasbn@cpan.org> >>
 
 =head1 COPYRIGHT
 
-Date-Pregnancy is (C) by Jonas B. Nielsen, (jonasbn) 2004-2015
+Date-Pregnancy is (C) by Jonas B. Nielsen, (jonasbn) 2004-2016
 
 Date-Pregnancy is released under the artistic license 2.0
 
