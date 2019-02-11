@@ -178,8 +178,8 @@ __END__
 =begin markdown
 
 [![CPAN version](https://badge.fury.io/pl/Date-Pregnancy.svg)](http://badge.fury.io/pl/Date-Pregnancy)
-[![Build Status](https://travis-ci.org/jonasbn/Date-Pregnancy.svg?branch=master)](https://travis-ci.org/jonasbn/Date-Pregnancy)
-[![Coverage Status](https://coveralls.io/repos/jonasbn/Date-Pregnancy/badge.png)](https://coveralls.io/r/jonasbn/Date-Pregnancy)
+[![Build Status](https://travis-ci.org/jonasbn/perl-date-pregnancy.svg?branch=master)](https://travis-ci.org/jonasbn/perl-date-pregnancy)
+[![Coverage Status](https://coveralls.io/repos/github/jonasbn/Date-Pregnancy/badge.svg?branch=master)](https://coveralls.io/github/jonasbn/Date-Pregnancy?branch=master)
 
 =end markdown
 
