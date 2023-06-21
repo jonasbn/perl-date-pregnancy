@@ -2,7 +2,7 @@ requires 'DateTime';
 requires 'Carp';
 requires 'Clone';
 requires 'POSIX';
-requires 'perl', '5.008';
+requires 'perl', '5.37.11';
 
 on 'build', sub {
     requires 'Module::Build', '0.4234';
