@@ -18,7 +18,7 @@ on 'test', sub {
     requires 'Test::More';
     requires 'Test::Pod', '1.52';
     requires 'Test::Pod::Coverage', '1.10';
-    requires 'Test::Tester', '1.302208';
+    requires 'Test::Tester', '1.302209';
 };
 
 on 'configure', sub {
